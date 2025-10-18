@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Inter", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Layout background */
+.app-premium-bg {
+  @apply bg-premium-gradient min-h-screen text-slate-200;
+}
+
+/* Card surface */
+.card-premium {
+  @apply rounded-2xl bg-white/5 border border-white/10 shadow-soft backdrop-blur;
+}
+
+/* Section heading with gradient underline */
+.heading-premium {
+  @apply text-3xl md:text-4xl font-bold tracking-tight text-white;
+  background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(148,163,184,0.95) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heading-accent {
+  @apply relative inline-block;
+}
+.heading-accent::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 h-[2px] w-full;
+  background: linear-gradient(90deg, rgba(56,189,248,0.7), rgba(139,92,246,0.7));
+  filter: blur(0.3px);
+}
+
+/* CTA buttons */
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-white bg-sky-500/90 hover:bg-sky-400 active:bg-sky-500 shadow-glow transition-colors;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-sky-300 hover:text-white hover:bg-white/5 transition-colors;
+}
+.btn-glow {
+  @apply animate-pulseGlow;
+}
+
+/* Status tags */
+.tag {
+  @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold border shadow-sm backdrop-blur;
+}
+.tag-approved { @apply border-emerald-400/30 text-emerald-300 bg-emerald-400/10; }
+.tag-backdated { @apply border-amber-400/30 text-amber-300 bg-amber-400/10; }
+.tag-flag { @apply border-rose-400/30 text-rose-300 bg-rose-400/10; }
+
+/* Subtle divider */
+.section-divider { @apply border-t border-white/10; }
+
