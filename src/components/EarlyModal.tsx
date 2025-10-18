@@ -1,4 +1,3 @@
-import React from 'react'
 import { track } from '../utils/analytics'
 
 export function EarlyModal({ open, onClose }: { open: boolean; onClose: () => void }) {

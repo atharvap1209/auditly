@@ -1,4 +1,3 @@
-import React from 'react'
 import { track } from '../utils/analytics'
 import { AuditTimeline } from './AuditTimeline'
 

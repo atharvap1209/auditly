@@ -1,4 +1,3 @@
-import React from "react";
 import { track } from "../utils/analytics";
 
 const BOOKING_URL = "https://calendar.app.google/cErANmim3yj6nuAB9";

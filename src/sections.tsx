@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const HowItWorks = () => (
   <section id="how-it-works" className="py-18 md:py-20">

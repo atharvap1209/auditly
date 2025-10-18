@@ -14,28 +14,6 @@ type TimelineEntry = {
   edited: string
 }
 
-const CalendarIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-slate-400">
-    <path d="M7 2h2v2H7zM15 2h2v2h-2z"/>
-    <path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 4v10h14V8H5z"/>
-  </svg>
-)
-
-const EventIcon: React.FC<{ type: TimelineEventType }> = ({ type }) => {
-  if (type === 'hire') {
-    return (
-      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300">●</span>
-    )
-  }
-  if (type === 'salary') {
-    return (
-      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-sky-500/20 text-sky-300">↻</span>
-    )
-  }
-  return (
-    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-rose-500/20 text-rose-300">▾</span>
-  )
-}
 
 const Avatar: React.FC<{ name: string }> = ({ name }) => {
   const initials = name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase()
