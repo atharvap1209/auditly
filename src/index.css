@@ -67,6 +67,11 @@
 .tag-approved { @apply border-emerald-400/30 text-emerald-300 bg-emerald-400/10; }
 .tag-backdated { @apply border-amber-400/30 text-amber-300 bg-amber-400/10; }
 .tag-flag { @apply border-rose-400/30 text-rose-300 bg-rose-400/10; }
+/* Extra tags for timeline */
+.tag-info { @apply border-sky-400/30 text-sky-300 bg-sky-400/10; }
+.tag-salary { @apply border-sky-400/30 text-sky-300 bg-sky-400/10; }
+.tag-hire { @apply border-emerald-400/30 text-emerald-300 bg-emerald-400/10; }
+.tag-termination { @apply border-rose-400/30 text-rose-300 bg-rose-400/10; }
 
 /* Subtle divider */
 .section-divider { @apply border-t border-white/10; }
