@@ -83,47 +83,45 @@ const entries: TimelineEntry[] = [
 
 export const AuditTimeline: React.FC = () => {
   return (
-    <div className="card-premium p-4">
-      <h3 className="text-sm font-semibold text-slate-300 mb-2">Change Timeline: Salary and Role Events</h3>
+    <div className="timeline-panel">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-xl md:text-2xl font-bold text-white">HR Audit Timeline</h3>
+        <button className="btn-glass">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10"/><path d="M8 7h8"/><path d="M6 21h12l-2-6H8l-2 6z"/></svg>
+          Upload CSV
+        </button>
+      </div>
       <div className="relative pl-6">
-        {/* vertical line */}
         <div className="absolute left-3 top-0 bottom-0 w-px bg-white/10" />
-        <ul className="space-y-3">
-          {entries.map((e, idx) => (
-            <li key={e.id} className="relative group">
-              {/* dot */}
-              <div className="absolute -left-[7px] top-5 h-3 w-3 rounded-full bg-white/20 ring-2 ring-white/20" />
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3 shadow-sm hover:shadow-glow transition-shadow">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-2">
-                    <Avatar name={e.employee} />
-                    <div className="leading-tight">
-                      <div className="text-white font-medium">{e.employee}</div>
-                      <div className="text-xs text-slate-400 flex items-center gap-1"><EventIcon type={e.type} />{e.type === 'hire' ? 'New Hire' : e.type === 'salary' ? 'Salary Change' : 'Termination'}</div>
+        <ul className="space-y-4">
+          {entries.map((e) => (
+            <li key={e.id} className="relative">
+              <div className="absolute -left-[7px] top-6 h-3 w-3 rounded-full bg-white/50" />
+              <div className={`timeline-card ${e.noteTag === 'backdated' ? 'amber' : e.type === 'termination' ? 'rose' : ''} hover:shadow-glow transition-shadow`}> 
+                <div className="p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <Avatar name={e.employee} />
+                      <div>
+                        <div className="timeline-title">
+                          {e.type === 'salary' && <>Salary Changed: <span className="text-rose-400">{e.before}</span> <span className="text-slate-400">→</span> <span className="text-emerald-400">{e.after}</span></>}
+                          {e.type === 'hire' && <>New Hire: <span className="text-emerald-400">{e.employee}</span></>}
+                          {e.type === 'termination' && <>Termination</>}
+                        </div>
+                        <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-4 timeline-meta">
+                          <div className="flex items-center gap-2"><CalendarIcon /> Effective: {e.effective}</div>
+                          <div className="flex items-center gap-2"><CalendarIcon /> Edited: {e.edited}</div>
+                          <div className="flex items-center gap-2">
+                            <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-400/20 text-sky-300">♥</span>
+                            {e.approver ? `Approved by ${e.approver}` : '—'}
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    {e.type === 'salary' && <span className="tag tag-salary">Salary Change</span>}
-                    {e.type === 'hire' && <span className="tag tag-hire">New Hire</span>}
-                    {e.type === 'termination' && <span className="tag tag-termination">Termination</span>}
-                    {e.noteTag === 'backdated' && <span className="tag tag-backdated">Backdated</span>}
-                    {e.noteTag === 'approved' && <span className="tag tag-info">Approved{e.approver ? `: ${e.approver}` : ''}</span>}
-                  </div>
-                </div>
-                <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <div className="text-sm">
-                    <div className="text-slate-400">Before → After</div>
-                    <div className="font-semibold"><span className="text-rose-400">{e.before}</span> <span className="text-slate-400">→</span> <span className="text-emerald-400">{e.after}</span></div>
-                  </div>
-                  <div className="text-sm">
-                    <div className="text-slate-400">Approved by</div>
-                    <div className="font-semibold text-slate-200">{e.approver || '—'}</div>
-                  </div>
-                  <div className="text-sm">
-                    <div className="text-slate-400">Dates</div>
-                    <div className="flex items-center gap-4 text-slate-200">
-                      <span className="inline-flex items-center gap-1"><CalendarIcon /> {e.effective}</span>
-                      <span className="inline-flex items-center gap-1"><CalendarIcon /> {e.edited}</span>
+                    <div className="flex items-center gap-2">
+                      {e.type === 'salary' && <span className="tag tag-salary">Approved</span>}
+                      {e.noteTag === 'backdated' && <span className="tag tag-backdated">Backdated</span>}
+                      {e.type === 'termination' && <span className="tag tag-flag">Risk</span>}
                     </div>
                   </div>
                 </div>
@@ -131,6 +129,16 @@ export const AuditTimeline: React.FC = () => {
             </li>
           ))}
         </ul>
+      </div>
+      <div className="mt-5 flex items-center gap-3">
+        <button className="btn-glass">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5z"/><path d="M19 10H5v6h14v-6z"/><path d="M12 4l4 4H8l4-4z"/></svg>
+          Export CSV
+        </button>
+        <button className="btn-glass">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v20H6z"/><path d="M9 6h6"/><path d="M9 10h6"/><path d="M9 14h6"/></svg>
+          Export PDF
+        </button>
       </div>
     </div>
   )
