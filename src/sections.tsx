@@ -6,17 +6,26 @@ export const HowItWorks = () => (
       <h2 className="heading-premium heading-accent">From CSV to auditor‑ready timeline</h2>
       <div className="grid md:grid-cols-3 gap-6 mt-6">
         <div className="p-5 card-premium">
-          <img src="/assets/mock-upload.svg" alt="Upload CSV" className="mb-3" />
+          <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500/20 text-sky-300">
+            {/* Upload icon */}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l4 4h-3v5h-2V7H8l4-4z"/><path d="M5 13h14v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6z"/></svg>
+          </div>
           <h3 className="font-semibold text-white">Upload</h3>
           <p className="text-slate-400">Drop in your HR/payroll CSV. Use our sample if needed.</p>
         </div>
         <div className="p-5 card-premium">
-          <img src="/assets/mock-timeline.svg" alt="Detect changes" className="mb-3" />
+          <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-violet-500/20 text-violet-300">
+            {/* Detect icon */}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm1 14h-2v-2h2zm0-4h-2V6h2z"/></svg>
+          </div>
           <h3 className="font-semibold text-white">Detect</h3>
           <p className="text-slate-400">We identify hires, terminations, salary/title changes, and risk flags.</p>
         </div>
         <div className="p-5 card-premium">
-          <img src="/assets/mock-export.svg" alt="Export timeline" className="mb-3" />
+          <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-300">
+            {/* Export icon */}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l4 4h-3v7h-2V7H8l4-4z"/><path d="M5 14h14v5a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-5z"/></svg>
+          </div>
           <h3 className="font-semibold text-white">Export</h3>
           <p className="text-slate-400">One shareable timeline (CSV today; PDF planned).</p>
         </div>
@@ -40,23 +49,38 @@ export const Outcomes = () => (
 
 export const Features = () => (
   <section className="py-18 md:py-20">
-    <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-4 gap-5">
-      <article className="p-5 card-premium">
-        <h3 className="font-semibold text-white">Change detection</h3>
-        <p className="text-slate-400">Track salary, title, department, status, and events with diffs.</p>
-      </article>
-      <article className="p-5 card-premium">
-        <h3 className="font-semibold text-white">Risk flags</h3>
-        <p className="text-slate-400">Backdated edits, outliers, and missing approver.</p>
-      </article>
-      <article className="p-5 card-premium">
-        <h3 className="font-semibold text-white">Diffs & justifications</h3>
-        <p className="text-slate-400">Side‑by‑side old → new with who/when.</p>
-      </article>
-      <article className="p-5 card-premium">
-        <h3 className="font-semibold text-white">Export center</h3>
-        <p className="text-slate-400">CSV today; PDF planned.</p>
-      </article>
+    <div className="max-w-6xl mx-auto px-5">
+      <h2 className="heading-premium heading-accent">Features</h2>
+      <div className="grid md:grid-cols-4 gap-5 mt-6">
+        <article className="p-5 card-premium">
+          <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500/20 text-sky-300">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+          </div>
+          <h3 className="font-semibold text-white">Change detection</h3>
+          <p className="text-slate-400">Track salary, title, department, status, and events with diffs.</p>
+        </article>
+        <article className="p-5 card-premium">
+          <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-amber-500/20 text-amber-300">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+          </div>
+          <h3 className="font-semibold text-white">Risk flags</h3>
+          <p className="text-slate-400">Backdated edits, outliers, and missing approver.</p>
+        </article>
+        <article className="p-5 card-premium">
+          <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-violet-500/20 text-violet-300">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zm0 5h10v2H4zm0 5h7v2H4z"/><path d="M17 11l4 3-4 3v-6z"/></svg>
+          </div>
+          <h3 className="font-semibold text-white">Diffs & justifications</h3>
+          <p className="text-slate-400">Side‑by‑side old → new with who/when.</p>
+        </article>
+        <article className="p-5 card-premium">
+          <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-300">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h14v12H5z"/><path d="M19 18H5l-2 2h18l-2-2z"/></svg>
+          </div>
+          <h3 className="font-semibold text-white">Export center</h3>
+          <p className="text-slate-400">CSV today; PDF planned.</p>
+        </article>
+      </div>
     </div>
   </section>
 )
