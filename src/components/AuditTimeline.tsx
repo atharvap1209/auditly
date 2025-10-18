@@ -84,44 +84,52 @@ const entries: TimelineEntry[] = [
 export const AuditTimeline: React.FC = () => {
   return (
     <div className="timeline-panel">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-6">
         <h3 className="text-xl md:text-2xl font-bold text-white">HR Audit Timeline</h3>
         <button className="btn-glass">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10"/><path d="M8 7h8"/><path d="M6 21h12l-2-6H8l-2 6z"/></svg>
           Upload CSV
         </button>
       </div>
-      <div className="relative pl-6">
-        <div className="absolute left-3 top-0 bottom-0 w-px bg-white/10" />
-        <ul className="space-y-4">
+      <div className="relative pl-7">
+        <div className="absolute left-3.5 top-0 bottom-0 w-px bg-white/7" />
+        <ul className="space-y-6">
           {entries.map((e) => (
             <li key={e.id} className="relative">
-              <div className="absolute -left-[7px] top-6 h-3 w-3 rounded-full bg-white/50" />
-              <div className={`timeline-card ${e.noteTag === 'backdated' ? 'amber' : e.type === 'termination' ? 'rose' : ''} hover:shadow-glow transition-shadow`}> 
-                <div className="p-4">
-                  <div className="flex items-start justify-between gap-3">
+              <div className="absolute -left-[7px] top-6 h-3 w-3 rounded-full bg-white/40" />
+              <div className={`timeline-card ${e.noteTag === 'backdated' ? 'amber' : e.type === 'termination' ? 'rose' : ''} hover:timeline-card-hover transition-shadow`}> 
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <Avatar name={e.employee} />
                       <div>
-                        <div className="timeline-title">
-                          {e.type === 'salary' && <>Salary Changed: <span className="text-rose-400">{e.before}</span> <span className="text-slate-400">→</span> <span className="text-emerald-400">{e.after}</span></>}
-                          {e.type === 'hire' && <>New Hire: <span className="text-emerald-400">{e.employee}</span></>}
+                        <div className="timeline-title text-[17px] md:text-lg lg:text-xl font-extrabold">
+                          {e.type === 'salary' && (<>
+                            Salary Changed: <span className="font-semibold">
+                              <span className="text-slate-200">{e.before}</span>
+                              <span className="mx-2 text-slate-500">→</span>
+                              <span className="bg-gradient-to-r from-emerald-300 to-sky-300 bg-clip-text text-transparent">{e.after}</span>
+                            </span>
+                          </>)}
+                          {e.type === 'hire' && <>New Hire: <span className="text-emerald-300">{e.employee}</span></>}
                           {e.type === 'termination' && <>Termination</>}
                         </div>
-                        <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-4 timeline-meta">
-                          <div className="flex items-center gap-2"><CalendarIcon /> Effective: {e.effective}</div>
-                          <div className="flex items-center gap-2"><CalendarIcon /> Edited: {e.edited}</div>
-                          <div className="flex items-center gap-2">
-                            <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-400/20 text-sky-300">♥</span>
-                            {e.approver ? `Approved by ${e.approver}` : '—'}
+                        <div className="mt-1 space-y-1.5">
+                          <div className="timeline-meta text-[11.5px] md:text-xs">
+                            <span className="text-slate-400">Effective</span>: {e.effective}
+                            <span className="mx-3 text-slate-600">•</span>
+                            <span className="text-slate-400">Edited</span>: {e.edited}
+                          </div>
+                          <div className="timeline-meta text-[11.5px] md:text-xs">
+                            {e.approver ? `Approved by ${e.approver}` : 'Pending review'}
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      {e.type === 'salary' && <span className="tag tag-salary">Approved</span>}
-                      {e.noteTag === 'backdated' && <span className="tag tag-backdated">Backdated</span>}
-                      {e.type === 'termination' && <span className="tag tag-flag">Risk</span>}
+                    <div className="flex items-center gap-2 self-start">
+                      {e.type === 'salary' && <span className="tag tag-approved-muted">Approved</span>}
+                      {e.noteTag === 'backdated' && <span className="tag tag-backdated-muted">Backdated</span>}
+                      {e.type === 'termination' && <span className="tag tag-flag-muted">Risk</span>}
                     </div>
                   </div>
                 </div>
@@ -130,12 +138,12 @@ export const AuditTimeline: React.FC = () => {
           ))}
         </ul>
       </div>
-      <div className="mt-5 flex items-center gap-3">
-        <button className="btn-glass">
+      <div className="mt-8 pt-4 border-t border-white/10 flex items-center gap-3 justify-end">
+        <button className="btn-glass-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5z"/><path d="M19 10H5v6h14v-6z"/><path d="M12 4l4 4H8l4-4z"/></svg>
           Export CSV
         </button>
-        <button className="btn-glass">
+        <button className="btn-glass-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v20H6z"/><path d="M9 6h6"/><path d="M9 10h6"/><path d="M9 14h6"/></svg>
           Export PDF
         </button>

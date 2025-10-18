@@ -111,6 +111,19 @@
 .timeline-card.amber::before { background: linear-gradient(90deg, rgba(245,158,11,0.6), rgba(253,230,138,0.5)); }
 .timeline-card.rose::before { background: linear-gradient(90deg, rgba(244,63,94,0.6), rgba(192,38,211,0.5)); }
 
+/* Softer hover state */
+.hover\:timeline-card-hover:hover {
+  box-shadow: var(--shadow-soft), 0 0 0 1px rgba(255,255,255,0.06), 0 10px 30px -12px rgba(56,189,248,0.35);
+}
+
 .timeline-title { @apply text-white font-semibold; }
 .timeline-meta { @apply text-xs text-slate-300; }
+
+/* Muted tags for top-right chips (cannot @apply custom classes in v4) */
+.tag-approved-muted { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold border shadow-sm backdrop-blur border-emerald-400/20 text-emerald-300/90 bg-emerald-400/10; }
+.tag-backdated-muted { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold border shadow-sm backdrop-blur border-amber-400/20 text-amber-300/90 bg-amber-400/10; }
+.tag-flag-muted { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold border shadow-sm backdrop-blur border-rose-400/20 text-rose-300/90 bg-rose-400/10; }
+
+/* Utility: lighter timeline guide color using custom opacity */
+.bg-white\/7 { background-color: rgba(255,255,255,0.07); }
 
