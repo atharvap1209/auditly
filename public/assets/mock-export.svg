@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="200" viewBox="0 0 520 200" role="img" aria-label="Export toolbar mock">
+  <rect x="0" y="0" width="520" height="200" fill="#f8fafc"/>
+  <rect x="40" y="40" width="440" height="120" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="70" y="80" width="110" height="36" rx="8" fill="#0ea5e9"/>
+  <text x="95" y="103" fill="#ffffff" font-family="Inter, Arial" font-size="14">Export CSV</text>
+  <rect x="200" y="80" width="110" height="36" rx="8" fill="#94a3b8"/>
+  <text x="225" y="103" fill="#ffffff" font-family="Inter, Arial" font-size="14">Export PDF</text>
+</svg>
+

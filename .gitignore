@@ -1,0 +1,16 @@
+.DS_Store
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+.vscode/
+.idea/
+*.log
+coverage/
+.cache/
+.tmp/
+.vercel/
+.netlify/
+.swp
+.DS_Store
